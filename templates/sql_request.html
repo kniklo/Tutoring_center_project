@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SQL request</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="{{ url_for('static', filename='js/index.js') }}"></script>
+        {%for res in data['result']%}
+			<h4>{{res}}</h4>
+		{%endfor%}
+      <a href="/"> На головну </a>
+</body>
+</html>

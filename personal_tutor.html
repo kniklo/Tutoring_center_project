@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Особистий кабінет репетитора</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+<body>
+<h1>Особистий кабінет репетитора</h1>
+<div></div>
+	<form id="myform" method="post" action="/personal_tutor">
+    <div>
+		<table>
+			<tr>
+				<td>Логін</td>
+				<td colspan="2">{{data['userdata'][0]}}</td>
+			</tr>
+			<tr>
+				<td>Ім'я</td>
+				<td colspan="2"><input name='name' type="text" value={{data['userdata'][1]}}></td>
+			</tr>
+			<tr>
+				<td>e-mail</td>
+				<td colspan="2"><input name='email' type="text" value={{data['userdata'][2]}}></td>
+			</tr>
+			<tr>
+				<td>Вартість години</td>
+				<td colspan="2"><input name='hourly_rate' type="text" value={{data['userdata'][3]}}></td>
+			</tr>
+		</table>
+		<input class='tutor-button' type="submit" value="Оновити дані">
+	</div>
+	</form>
+	<table>
+		<tr>
+			<td colspan="3"><center>Предмети</center></td>
+		</tr>
+		{%for subject in data['subjects']%}
+		<tr>
+			<td colspan="2"><center>{{subject[1]}}</center></td>
+			<td><button onclick=removeTutorSubject('{{subject[0]}}')> - </button></td>
+		</tr>
+		{%endfor%}
+		<tr>
+			<td colspan="2"><center>
+			<select id="select1" name="select1">
+			{% for subject in data['allsubjects'] %}
+				<option value="{{ subject[0] }}">{{ subject[1] }}</option>
+			{% endfor %}
+			</select>
+			</center></td>
+			<td><button onclick=addTutorSubject()> + </button></td>
+		</tr>
+	</table>
+	<br>
+	<center><a href="/"> На головну </a></center>
+					
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="{{ url_for('static', filename='js/personal_tutor.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Реєстрація клієнта</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+<body>
+	<h1>Реєстрація клієнта</h1>
+	<div></div>
+    <div class='centered-block'>
+    <form method="POST" action="/register_client">
+        <label for="login">Логін:</label>
+        <input type="text" id="login" name="login" required><br><br>
+        
+        <label for="password">Пароль:</label>
+    <input type="password" id="password" name="password" required><br><br>
+
+	<label for="name">Ім'я:</label>
+    <input type="text" id="name" name="name" required><br><br>
+
+	<label for="email">e-mail:</label>
+    <input type="text" id="email" name="email" required><br><br>
+
+    <input type="submit" value="Зареєструватися">
+	<br>
+	<div> {{footer}} </div>
+	<br>
+	<center><a href="/"> На головну </a></center>
+</form>
+</div>
+</body>
+</html>
